@@ -68,7 +68,7 @@ function processSection(section, config) {
 function processSectionsList(sections, config) {
 	if (!sections) return null;
 
-	return '[' + 
+	return '[' +
 		sections.map(function(section) { return processSection(section, config); }).join(',') +
 	']';
 }
@@ -79,7 +79,8 @@ module.exports.pitch = function() {
 
 	var simplifiedConfig = _.pick(config, [
 		'title',
-		'highlightTheme'
+		'highlightTheme',
+		'disableSingleComponentView'
 	]);
 
 	return [

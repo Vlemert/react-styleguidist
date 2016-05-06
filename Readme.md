@@ -217,6 +217,10 @@ You can change some settings in the `styleguide.config.js` file in your projectâ
   }
   ```
 
+* **`disableSingleComponentView`**<br>
+  Type: `Boolean`, default: `false`<br>
+  When set to `true`, the single component view functionality is disabled.
+
 * **`skipComponentsWithoutExample`**<br>
   Type: `Boolean`, default: `false`<br>
   When set to `true`, ignore components that don't have an example file (as determined by `getExampleFilename`).

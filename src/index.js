@@ -41,7 +41,7 @@ sections = processSections(sections || []);
 
 let hasRenderedFullStyleguide = false;
 function renderStyleguide() {
-	if (window.location.hash.substr(0, 3) === '#!/') {
+	if (window.location.hash.substr(0, 3) === '#!/' && !config.disableSingleComponentView) {
 		const targetComponentName = window.location.hash.substr(3);
 
 		const filteredComponents = filter(components, function(component) {
