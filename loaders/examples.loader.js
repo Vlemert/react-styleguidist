@@ -22,7 +22,7 @@ function readExamples(markdown) {
 	md.renderer.rules.code_block = md.renderer.rules.fence = function(tokens, idx) {
 		var token = tokens[idx];
 		var code = tokens[idx].content.trim();
-		if (token.type === 'fence' && token.info) {
+		if (token.type === 'fence' && token.info && token.info !== 'no-code') {
 			// Render fenced blocks with language flag as regular Markdown code snippets
 			var highlighted;
 			try {
@@ -33,7 +33,10 @@ function readExamples(markdown) {
 			}
 			return '```' + token.info + '\n' + highlighted + '\n```';
 		}
-		codeChunks.push(code);
+		codeChunks.push({
+			code: code,
+			config: token.info
+		});
 		return codePlaceholder;
 	};
 
@@ -45,9 +48,9 @@ function readExamples(markdown) {
 		if (chunk) {
 			chunks.push({type: 'markdown', content: chunk});
 		}
-		var code = codeChunks.shift();
-		if (code) {
-			chunks.push({type: 'code', content: code, evalInContext: evalPlaceholder});
+		var codeChunk = codeChunks.shift();
+		if (codeChunk) {
+			chunks.push({type: 'code', content: codeChunk.code, config: codeChunk.config, evalInContext: evalPlaceholder});
 		}
 	});
 

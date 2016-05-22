@@ -38,6 +38,7 @@ const ReactComponent = (Renderer) => class extends Component {
 					return (
 						<Playground
 							code={example.content}
+							config={example.config}
 							evalInContext={example.evalInContext}
 							highlightTheme={highlightTheme}
 							key={index}
