@@ -1,7 +1,7 @@
 {
   "name": "react-styleguidist",
   "description": "React components style guide generator",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "homepage": "https://github.com/sapegin/react-styleguidist",
   "author": {
     "name": "Artem Sapegin",
@@ -47,6 +47,7 @@
     "highlight.js": "9.3.0",
     "html-webpack-plugin": "2.16.0",
     "json-loader": "0.5.4",
+    "loader-utils": "^0.2.15",
     "lodash": "4.11.1",
     "markdown-it": "6.0.1",
     "markdown-react-js": "0.3.0",
